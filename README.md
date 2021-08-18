@@ -42,12 +42,21 @@ Don't be sly! Try to solve the challenges on your own before comparing with my s
 	 - password: sJIJNW6ucpu6HPZ1ZAchaDtwd7oGrD14
 
 ## natas 3 -> 4
-- Press F12.
-- Since it says "Not even Google will find it this time...", append to the link `/robots.txt`.
-- Replace /robots.txt with `/s3cr3t`. Then click on the file `users.txt` to find the password for natas4.
+ - Press F12.
+ - Since it says "Not even Google will find it this time...", append to the link `/robots.txt`.
+ - Replace /robots.txt with `/s3cr3t`. Then click on the file `users.txt` to find the password for natas4.
  - Visit the link: http://natas4.natas.labs.overthewire.org
 	 - username: natas4
 	 - password: Z9tkRkWmpt9Qr7XrR5jWRkgOU901swEZ
 
 ## natas 4 -> 5
+ - Click on "refresh page" to see that the Referer header change.
+ - Open a terminal and run the following command in order to generate the base64 token from username and password:
+	- `generate_token=$(echo -ne "natas4:Z9tkRkWmpt9Qr7XrR5jWRkgOU901swEZ" | base64 --wrap 0)`
+ - Now run the following command to make a request with a specific Referer header:
+	- `curl -H "Authorization: Basic $generate_token" --referer http://natas5.natas.labs.overthewire.org/ http://natas4.natas.labs.overthewire.org`
+ - Visit the link: http://natas5.natas.labs.overthewire.org
+	- username: natas5
+	- password: iX6IOfmpN7AYOQGPwtn3fXpbaJVJcHfq
 
+## natas 5 -> 6
