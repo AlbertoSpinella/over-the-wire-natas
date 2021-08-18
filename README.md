@@ -78,7 +78,7 @@ Don't be sly! Try to solve the challenges on your own before comparing with my s
 ## natas 6 -> 7
  - Generate the base64 token and save it to a variable:
 	- `generate_token=$(echo -ne "natas6:aGoY4q2Dc6MgDq4oL4YtoKtyAg9PeHa1" | base64 --wrap 0)`
- - Open the browser and click on "View sourcecode".
+ - On the browser, and click on "View sourcecode".
  - As you can see, there's a line `include "includes/secret.inc";`. Try to visit the page: `http://natas5.natas.labs.overthewire.org/includes/secret.inc`. If you can't see anything, try to curl:
 	 - `curl -H "Authorization: Basic $generate_token" http://natas5.natas.labs.overthewire.org/includes/secret.inc`
  - Copy the secret, go back to natas6 homepage and paste it in the "Input secret" field.
@@ -94,4 +94,20 @@ Don't be sly! Try to solve the challenges on your own before comparing with my s
 	- password: DBfUBfqQG69KvJvJ1iAbMoIpwSNQ9bWe
 
 ## natas 8 -> 9
+ - On the browser, and click on "View sourcecode".
+ - Look at the `encodeSecret()` function. It encode to base64, then revert the string, then convert to hex. Execute this PHP script, which do the inverse operations:
+```
+<?php
+$encodedSecret = "3d3d516343746d4d6d6c315669563362";
+function decodeSecret($encodedSecret) {
+    print base64_decode(strrev(hex2bin($encodedSecret)));
+}
+decodeSecret($encodedSecret);
+?>
+```
+ - Once you have found the secret, go back to natas8 homepage and paste it in the "Input secret" field.
+ - Visit the link: http://natas9.natas.labs.overthewire.org
+	- username: natas9
+	- password: W0mMhUcRRnG8dcghE4qvk3JA9lGt8nDl
 
+# natas 9 -> 10
