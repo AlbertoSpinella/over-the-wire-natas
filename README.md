@@ -12,6 +12,8 @@ Don't be sly! Try to solve the challenges on your own before comparing with my s
 7. [natas 5 -> 6](https://github.com/AlbertoSpinella/over-the-wire-natas-partial#natas-5---6)
 8. [natas 6 -> 7](https://github.com/AlbertoSpinella/over-the-wire-natas-partial#natas-6---7)
 9. [natas 7 -> 8](https://github.com/AlbertoSpinella/over-the-wire-natas-partial#natas-7---8)
+10. [natas 8 -> 9](https://github.com/AlbertoSpinella/over-the-wire-natas-partial#natas-8---9)
+11. [natas 9 -> 10](https://github.com/AlbertoSpinella/over-the-wire-natas-partial#natas-9---10)
 
 ## natas 0
 
@@ -111,3 +113,10 @@ decodeSecret($encodedSecret);
 	- password: W0mMhUcRRnG8dcghE4qvk3JA9lGt8nDl
 
 # natas 9 -> 10
+ - Try entering something in the field, then press Search. Then click on View sourcecode.
+ - As you can't see, the input isn't sanitized. Try to search `a; ls -l`.
+ - Now search `a; pwd` to print your current directory.
+ - Now run `a; cat ../../../../etc/natas_webpass/natas9`.
+ - Visit the link: http://natas10.natas.labs.overthewire.org
+	- username: natas10
+	- password: W0mMhUcRRnG8dcghE4qvk3JA9lGt8nDl
