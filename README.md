@@ -1,4 +1,4 @@
-﻿Over the Wire's **Bandit** Walkthrough by AlbertoSpinella.
+﻿Over the Wire's **Natas** Walkthrough by AlbertoSpinella.
 
 Don't be sly! Try to solve the challenges on your own before comparing with my solutions.
 
