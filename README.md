@@ -87,3 +87,11 @@ Don't be sly! Try to solve the challenges on your own before comparing with my s
 	- password: 7z3hEENjQtflzgnT29q7wAvMNfZdh0i9
 
 ## natas 7 -> 8
+ - Press F12.
+ - Open the first `<div>` and find the hint. Try visit the following link: http://natas7.natas.labs.overthewire.org/index.php?page=/etc/natas_webpass/natas8
+ - Visit the link: http://natas8.natas.labs.overthewire.org
+	- username: natas8
+	- password: DBfUBfqQG69KvJvJ1iAbMoIpwSNQ9bWe
+
+## natas 8 -> 9
+
