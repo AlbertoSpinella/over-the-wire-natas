@@ -3,12 +3,15 @@
 Don't be sly! Try to solve the challenges on your own before comparing with my solutions.
 
 # Index
-1. natas 0
-2. natas 0 -> 1
-3. natas 1 -> 2
-4. natas 2 -> 3
-5. natas 3 -> 4
-6. natas 4 -> 5
+1. [natas 0](https://github.com/AlbertoSpinella/over-the-wire-natas-partial#natas-0)
+2. [natas 0 -> 1](https://github.com/AlbertoSpinella/over-the-wire-natas-partial#natas-0---1)
+3. [natas 1 -> 2](https://github.com/AlbertoSpinella/over-the-wire-natas-partial#natas-1---2)
+4. [natas 2 -> 3](https://github.com/AlbertoSpinella/over-the-wire-natas-partial#natas-2---3)
+5. [natas 3 -> 4](https://github.com/AlbertoSpinella/over-the-wire-natas-partial#natas-3---4)
+6. [natas 4 -> 5](https://github.com/AlbertoSpinella/over-the-wire-natas-partial#natas-4---5)
+7. [natas 5 -> 6](https://github.com/AlbertoSpinella/over-the-wire-natas-partial#natas-5---6)
+8. [natas 6 -> 7](https://github.com/AlbertoSpinella/over-the-wire-natas-partial#natas-6---7)
+9. [natas 7 -> 8](https://github.com/AlbertoSpinella/over-the-wire-natas-partial#natas-7---8)
 
 ## natas 0
 
@@ -73,3 +76,14 @@ Don't be sly! Try to solve the challenges on your own before comparing with my s
 	- password: aGoY4q2Dc6MgDq4oL4YtoKtyAg9PeHa1
 
 ## natas 6 -> 7
+ - Generate the base64 token and save it to a variable:
+	- `generate_token=$(echo -ne "natas6:aGoY4q2Dc6MgDq4oL4YtoKtyAg9PeHa1" | base64 --wrap 0)`
+ - Open the browser and click on "View sourcecode".
+ - As you can see, there's a line `include "includes/secret.inc";`. Try to visit the page: `http://natas5.natas.labs.overthewire.org/includes/secret.inc`. If you can't see anything, try to curl:
+	 - `curl -H "Authorization: Basic $generate_token" http://natas5.natas.labs.overthewire.org/includes/secret.inc`
+ - Copy the secret, go back to natas6 homepage and paste it in the "Input secret" field.
+ - Visit the link: http://natas7.natas.labs.overthewire.org
+	- username: natas7
+	- password: 7z3hEENjQtflzgnT29q7wAvMNfZdh0i9
+
+## natas 7 -> 8
